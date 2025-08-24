@@ -1,0 +1,34 @@
+# =========================
+# Rust / Cargo
+# =========================
+# Ignore target directories (build artifacts) anywhere in the repo
+**/target/
+
+# Cargo.lock (if building a library, not a binary)
+# Uncomment if this is a library workspace
+# Cargo.lock
+
+# Rustfmt / Clippy backups
+**/*.rs.bk
+
+
+# =========================
+# IDE / Editor
+# =========================
+# VS Code
+.vscode/
+*.code-workspace
+
+# IntelliJ / CLion / RustRover
+.idea/
+
+# Other editors
+*.swp
+*.swo
+
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
