@@ -8,8 +8,6 @@ fn main() {
 
     let secret_num = rand::rng().random_range(1..=100);
 
-    println!("The secret number is: {secret_num}");
-
     loop {
         println!("Input your guess...");
 
@@ -19,10 +17,10 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let guess: u32 = guess.trim().parse() {
+        let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue
-        }
+        };
 
         println!("You guessed: {guess}");
 
