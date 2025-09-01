@@ -23,4 +23,9 @@ fn main() {
 
     let m = Message::Write(String::from("hello"));
     m.call();
+
+    let some_num = Some(5);
+    let some_char = Some('e');
+
+    let absent_num = Option<i32> = None;
 }
