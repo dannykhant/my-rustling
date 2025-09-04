@@ -48,11 +48,14 @@ impl UsState {
 }
 
 fn describe_state_quarter(coin: Coin) -> Option<String> {
-    let state = if let Coin::Quarter(state) = coin {
-        state
-    } else {
+    // let state = if let Coin::Quarter(state) = coin {
+    //     state
+    // } else {
+    //     return None;
+    // };
+    let Coin::Quarter(state) = coin else {
         return None;
-    };
+    }
 
     if state.existed_in(1900) {
         Some(format!("{state:?}: old"))
