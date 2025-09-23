@@ -50,5 +50,38 @@ fn main() {
     let giveaway2 = store.giveaway(user_pref2);
     println!("user pref {:?} gets {:?}", user_pref2, giveaway2);
 
+    // closure examples
 
+    let expensive_closure = |num: u32| -> u32 {
+        println!("Calc slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+
+    let list = vec![1, 2, 3];
+    println!("before defining closure: {list:?}");
+
+    thread::spawn(move || println!("from thread: {list:?}"))
+        .join()
+        .unwrap();
+
+    #[derive(Debug)]
+    struct Rectangle {
+        width: u32,
+        height: u32
+    }
+
+    let mut list = [
+        Rectangle { width: 10, height: 1 },
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 }
+    ];
+
+    let mut num_sort_ops = 0;
+
+    list.sort_by_key(|r| {
+        num_sort_ops += 1;
+        r.width
+    });
+    println!("{list:#?} sorted in {num_sort_ops} times");
 }
