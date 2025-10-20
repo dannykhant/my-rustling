@@ -1,0 +1,94 @@
+# Rust
+
+- Variables
+    - Immutable is default
+    - Constants
+        - Must always annotate types
+        - Evaluation when declaring constant
+    - Shadowing
+        - Helps to use var w/o name extension like var_str, var_count
+    - Data types
+        - Scalar
+            - Integers
+                - signed - i32
+                - unsigned - u32
+            - Floating-point numbers
+                - f64
+            - Boolean
+                - One byte in size
+                - bool
+            - Characters
+                - Four bytes in size
+                - char
+        - Compound
+            - Tuples
+                - Without values - unit type `()`
+            - Array
+                - All members must be same type
+- Functions
+    - Uses snake case
+    - Parameters
+        - Must declare type
+    - Statements & Expressions
+        - Statements - Take action and NOT return value
+        - Expressions - Evaluate a resultant value
+            - Do not include ending semicolon
+            - Adding semicolon turn expression into statement
+- Control Flow
+    - `if` is an expression
+    - `loop` will loop forever
+        - Loop labels begin with a single quote
+    - `break` can be used with return value
+    - `while` chosen over `loop` for collections
+    - `for` is more concise and safe with collections
+- Ownership
+    - Enables Rust to make memory safety guarantees without needing a garbage collector
+    - Set of rules that govern managing memory
+    - Main purpose is to manage heap data
+    - Memory
+        - Stack
+            - Last in, first out
+            - Known, fixed size data
+            - Analogy: a stack of plates
+        - Heap
+            - Allocating
+                - find empty spot → mark it in use → return a pointer
+            - Analogy: being seated at a restaurant
+        - Stack is faster than Heap
+    - Ownership Rules
+        - Each value in Rust has an owner.
+        - There can only be one owner at a time.
+        - When the owner goes out of scope, the value will be dropped.
+    - Move
+        - Rust call drop function to clear heap in the end of scope
+        - Rust invalidate the first variable when copying the pointer to the 2nd variable, it is know as a **move** (shallow clone in other)
+    - Assignment
+        - Rust will free original value memory when new value is assigned to the existing variable
+    - Copy trait
+        - interger, boolean, floating-point, char, Tuples
+    - Function with Ownership
+        - Passing value will transfer ownership to function parameter
+    - Return
+        - Returning value will transfer ownership to receiver variable
+    - Reference
+        - It is like a pointer but guaranteed to point to a valid value for the life of that ref
+        - Reference Borrowing
+            - Passing reference to a function is called it
+    - Mutable Reference
+        - Allows only one reference to a value (when even combining with immutable ref)
+            - To prevent data race
+    - Rules of Reference
+        - At any given time, you can have either one mutable reference or any number of immutable references.
+        - References must always be valid.
+    - Slice Type
+        - Referencing continuous sequence of elements
+        - It is a kind of Reference, so doesn’t have ownership
+- Structs
+    - Can access data of other Struct instance from a Struct instance
+    - Field init shorthand is useful for the same names
+    - `..` can be used as struct update from another Struct instance
+        - The first Struct instance might not be used again if the ownership of the field is transferred
+    - Tuple Structs
+        - It requires the name of the type of struct when destructure it
+    - Unit-like Structs
+        - Useful to implement trait but don’t have any data
