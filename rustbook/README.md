@@ -7,24 +7,24 @@
         - Evaluation when declaring constant
     - Shadowing
         - Helps to use var w/o name extension like var_str, var_count
-    - Data types
-        - Scalar
-            - Integers
-                - signed - i32
-                - unsigned - u32
-            - Floating-point numbers
-                - f64
-            - Boolean
-                - One byte in size
-                - bool
-            - Characters
-                - Four bytes in size
-                - char
-        - Compound
-            - Tuples
-                - Without values - unit type `()`
-            - Array
-                - All members must be same type
+- Data types
+    - Scalar
+        - Integers
+            - signed - i32
+            - unsigned - u32
+        - Floating-point numbers
+            - f64
+        - Boolean
+            - One byte in size
+            - bool
+        - Characters
+            - Four bytes in size
+            - char
+    - Compound
+        - Tuples
+            - Without values - unit type `()`
+        - Array
+            - All members must be same type
 - Functions
     - Uses snake case
     - Parameters
@@ -53,15 +53,19 @@
         - Heap
             - Allocating
                 - find empty spot → mark it in use → return a pointer
+            - Pointer to the heap is known, fixed size and it must follow the pointer for actual data
             - Analogy: being seated at a restaurant
-        - Stack is faster than Heap
-    - Ownership Rules
-        - Each value in Rust has an owner.
-        - There can only be one owner at a time.
-        - When the owner goes out of scope, the value will be dropped.
+        - Stack is faster than Heap because allocator never has to search for a place to store data in Stack
+        - When calling a function, the values passed into function and functions local variables are pushed into Stack and those values are removed when the function is over
+    - **Ownership Rules**
+        - **Each value in Rust has an owner.**
+        - **There can only be one owner at a time.**
+        - **When the owner goes out of scope, the value will be dropped.**
     - Move
         - Rust call drop function to clear heap in the end of scope
         - Rust invalidate the first variable when copying the pointer to the 2nd variable, it is know as a **move** (shallow clone in other)
+    - Deep copy
+        - `clone()` is used to deeply copy the heap data
     - Assignment
         - Rust will free original value memory when new value is assigned to the existing variable
     - Copy trait
@@ -70,19 +74,28 @@
         - Passing value will transfer ownership to function parameter
     - Return
         - Returning value will transfer ownership to receiver variable
-    - Reference
-        - It is like a pointer but guaranteed to point to a valid value for the life of that ref
-        - Reference Borrowing
-            - Passing reference to a function is called it
+- Reference
+    - It is like a pointer but guaranteed to point to a valid value for the life of that reference
+    - Reference are immutable by default
+    - Borrowing
+        - The action of creating a reference is called borrowing
     - Mutable Reference
-        - Allows only one reference to a value (when even combining with immutable ref)
-            - To prevent data race
-    - Rules of Reference
-        - At any given time, you can have either one mutable reference or any number of immutable references.
-        - References must always be valid.
-    - Slice Type
-        - Referencing continuous sequence of elements
-        - It is a kind of Reference, so doesn’t have ownership
+        - To prevent data race
+            - Allows only ONE mutable reference to a value if there is a usage later
+                - mut ref1 → mut ref2 → use(ref1, ref2) doen’t work
+                - ref1 → ref2 → mut ref3 → use(ref1, ref2, ref3) doesn’t work
+                - ref1 → ref2 → use(ref1, ref2) → mut ref3 → use(ref3) works
+    - Dangling Reference
+        - A pointer that reference a location that may have been given to someone else
+    - **Rules of Reference**
+        - **At any given time, you can have either one mutable reference or any number of immutable references.**
+        - **References must always be valid.**
+- Slice Type
+    - Referencing continuous sequence of elements
+    - It is a kind of Reference, so doesn’t have ownership
+    - String Slices
+        - It is a immutable reference to contiguous sequence of the elements of a String
+        - The type of it is written as `&str`
 - Structs
     - Can access data of other Struct instance from a Struct instance
     - Field init shorthand is useful for the same names
