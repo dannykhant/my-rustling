@@ -22,9 +22,15 @@
             - char
     - Compound
         - Tuples
+            - Grouping multiple types into one compound type
             - Without values - unit type `()`
-        - Array
+            - Period (.) is used to access index of the value
+                - tuple.0
+        - Arrays
             - All members must be same type
+            - Arrays have a fixed length
+            - For repetitive same value
+                - [3; 5] == [3, 3, 3, 3, 3]
 - Functions
     - Uses snake case
     - Parameters
@@ -97,7 +103,10 @@
         - It is a immutable reference to contiguous sequence of the elements of a String
         - The type of it is written as `&str`
 - Structs
-    - Can access data of other Struct instance from a Struct instance
+    - Struct is like object’s data attributes
+    - `.` is used to access Struct instance’s fields
+        - user1.email
+    - Can access data of other Struct instance in a Struct instance
     - Field init shorthand is useful for the same names
     - `..` can be used as struct update from another Struct instance
         - The first Struct instance might not be used again if the ownership of the field is transferred
@@ -105,3 +114,17 @@
         - It requires the name of the type of struct when destructure it
     - Unit-like Structs
         - Useful to implement trait but don’t have any data
+    - To store reference in Struct, it requires to use Lifetimes
+    - Debug specifier `:?` in println! macro
+- Method Syntax
+    - Methods are defined within the context of a struct or enum or trait object
+    - The first parameter of methods is always `self`
+    - `&self` is equal to `self: &Self`
+    - Associated Functions
+        - All functions defined in `impl` are called associated functions
+        - They don’t have `self` as first parameter
+        - `::` syntax is used for associated functions and namespaces
+        - `Self` keyword represents as the Struct
+    - Each Struct is allowed to have multiple `impl` blocks
+- Enum
+    -
