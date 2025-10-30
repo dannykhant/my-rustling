@@ -3,10 +3,12 @@
 
 mod formatted_print;
 mod debug;
+mod display;
 
 fn main() {
     println!("Hello, world!");
 
     formatted_print::formatted_print();
     debug::debug();
+    display::display();
 }
