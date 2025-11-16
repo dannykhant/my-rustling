@@ -2,6 +2,5 @@
 mod exercises;
 
 fn main() {
-    use time::macros::datetime;
-    println!("{}", exercises::after(datetime!(2025-11-14 19:19:00)));
+    println!("{}", exercises::is_armstrong_number(153));
 }
