@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::is_armstrong_number(153));
+    println!("{}", exercises::recite(10, 3));
 }
