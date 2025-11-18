@@ -62,3 +62,26 @@ pub fn recite(start_bottles: u32, take_down: u32) -> String {
     
     msg
 }
+
+
+// Find the difference between the square of the sum 
+// and the sum of the squares of the first N natural numbers.
+pub fn square_of_sum(n: u32) -> u32 {
+    let mut sum = 0;
+    for i in 1..=n {
+        sum += i;
+    }
+    sum * sum
+}
+
+pub fn sum_of_squares(n: u32) -> u32 {
+    let mut total = 0;
+    for i in 1..=n {
+        total += i * i;
+    }
+    total
+}
+
+pub fn difference(n: u32) -> u32 {
+    square_of_sum(n) - sum_of_squares(n)
+}
