@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::difference(10));
+    println!("{}", exercises::total());
 }

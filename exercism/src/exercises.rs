@@ -85,3 +85,17 @@ pub fn sum_of_squares(n: u32) -> u32 {
 pub fn difference(n: u32) -> u32 {
     square_of_sum(n) - sum_of_squares(n)
 }
+
+
+// Calculate the number of grains of wheat on a chessboard.
+pub fn square(s: u32) -> u64 {
+     2u64.pow(s - 1)
+}
+
+pub fn total() -> u64 {
+    let mut total = 0u64;
+    for i in 1..=64 {
+        total += square(i);
+    }
+    total
+}
