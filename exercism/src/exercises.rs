@@ -99,3 +99,10 @@ pub fn total() -> u64 {
     }
     total
 }
+
+
+// It is divisible by 4.
+// If it is divisible by 100, it must also be divisible by 400
+pub fn is_leap_year(year: u64) -> bool {
+    (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+}
