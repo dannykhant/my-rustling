@@ -106,3 +106,28 @@ pub fn total() -> u64 {
 pub fn is_leap_year(year: u64) -> bool {
     (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
 }
+
+
+// Given a number n, determine what the nth prime is.
+// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, 
+// we can see that the 6th prime is 13.
+pub fn nth(n: u32) -> u32 {
+    (2..).filter(|&x| is_prime(x))
+            .nth(n as usize)
+            .unwrap()
+}
+
+fn is_prime(n: u32) -> bool {
+    if n < 2 {
+        return false;
+    }
+    if n % 2 == 0 {
+        return n == 2;
+    }
+    for i in (3..=n/2).step_by(2) {
+        if n % i == 0 {
+            return false;
+        }
+    }
+    true
+}

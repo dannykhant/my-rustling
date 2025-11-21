@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::is_leap_year(2000));
+    println!("{}", exercises::nth(10));
 }
