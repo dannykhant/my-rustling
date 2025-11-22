@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::nth(10));
+    println!("{}", exercises::reverse("abcdef"));
 }
