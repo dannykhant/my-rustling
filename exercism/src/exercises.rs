@@ -132,3 +132,19 @@ fn is_prime(n: u32) -> bool {
     }
     true
 }
+
+
+// Compute the prime factors of a given natural number.
+pub fn factors(mut n: u64) -> Vec<u64> {
+    let mut primes: Vec<u64> = vec![];
+    while n > 1 {
+        for i in 2..=n {
+            if n % i == 0 {
+                primes.push(i);
+                n /= i;
+                break;
+            }
+        }
+    }
+    primes
+}

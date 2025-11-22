@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::reverse("abcdef"));
+    println!("{:?}", exercises::factors(15));
 }
