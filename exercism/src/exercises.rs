@@ -148,3 +148,21 @@ pub fn factors(mut n: u64) -> Vec<u64> {
     }
     primes
 }
+
+
+// For want of a horseshoe nail, a kingdom was lost, or so the saying goes.
+pub fn build_proverb(list: &[&str]) -> String {
+    use std::fmt::Write;
+    let mut out = String::new();
+    
+    for (i, &v) in list.iter().enumerate() {
+        if i == list.len() - 1 {
+            let _ = write!(&mut out, "And all for the want of a {}.", 
+                list.first().copied().unwrap_or(""));
+            break;
+        }
+        let _ = writeln!(&mut out, "For want of a {v} the {} was lost.", 
+            list.get(i+1).copied().unwrap_or(""));
+    }
+    out
+}

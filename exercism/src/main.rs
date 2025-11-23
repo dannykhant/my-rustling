@@ -2,5 +2,6 @@
 mod exercises;
 
 fn main() {
-    println!("{:?}", exercises::factors(15));
+    let proverbs = ["nail", "shoe", "horse", "rider", "message", "battle", "kingdom"];
+    println!("{}", exercises::build_proverb(&proverbs));
 }
