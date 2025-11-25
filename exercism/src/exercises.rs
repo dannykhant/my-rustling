@@ -187,3 +187,25 @@ pub fn raindrops(n: u32) -> String {
     
     out
 }
+
+
+// The points awarded depend on two things:
+// The level (a number) that the player completed.
+// The base value of each magical item collected by the player during that level.
+pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32 {
+    use std::collections::HashSet;
+
+    let mut set = HashSet::new();
+    
+    for &f in factors {
+        if f == 0 {
+            continue;
+        }
+    
+        for m in (f..limit).step_by(f as usize) {
+            set.insert(m);
+        }
+    }
+    
+    set.iter().sum()
+}

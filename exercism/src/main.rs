@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::raindrops(30));
+    println!("{}", exercises::sum_of_multiples(30, &[3, 5, 7]));
 }
