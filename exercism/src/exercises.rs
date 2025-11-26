@@ -209,3 +209,27 @@ pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32 {
     
     set.iter().sum()
 }
+
+
+// Bob is a lackadaisical teenager.
+// In conversation, his responses are very limited.
+pub fn reply(message: &str) -> &str {
+    let message = message.trim();
+    
+    let apn: Vec<char> = message.chars().filter(|c| c.is_alphabetic()).collect();
+    let is_shouting = !apn.is_empty() && apn.iter().all(|c| c.is_uppercase());
+    let is_question = message.ends_with('?');
+    let is_silence = message.chars().all(|c| c.is_whitespace());
+    
+    match message {
+        _ if is_question & is_shouting => "Calm down, I know what I'm doing!",
+        
+        _ if is_silence => "Fine. Be that way!",
+            
+        _ if is_shouting => "Whoa, chill out!",
+            
+        _ if is_question => "Sure.",
+        
+        _ => "Whatever."
+    }
+}
