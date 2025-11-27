@@ -2,5 +2,6 @@
 mod exercises;
 
 fn main() {
-    println!("{}", exercises::reply("Are you okay?"));
+    let hs = exercises::HighScores::new(&[30, 50, 20, 70, 40]);
+    println!("{:?}", hs.personal_top_three());
 }
