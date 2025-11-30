@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{:?}", exercises::brackets_are_balanced("{[()}"));
+    println!("{:?}", exercises::collatz(13));
 }

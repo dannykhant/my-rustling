@@ -288,3 +288,20 @@ pub fn brackets_are_balanced(string: &str) -> bool {
     }
     s.is_empty()
 }
+
+
+// Collatz Conjecture, a puzzle that has baffled thinkers for decades.
+pub fn collatz(mut n: u64) -> Option<u64> {
+    if n < 1 { return None; }
+    let mut cnt = 0;
+    
+    while n > 1 {
+        match n % 2 {
+            0 => n /= 2,
+            _ => n = (n * 3) + 1
+        }
+        cnt += 1;
+    }
+    
+    Some(cnt)
+}
