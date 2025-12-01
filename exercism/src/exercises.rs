@@ -305,3 +305,21 @@ pub fn collatz(mut n: u64) -> Option<u64> {
     
     Some(cnt)
 }
+
+
+// Given a string of digits, return all the possible consecutive number series
+// of a specified length in that string.
+pub fn series(digits: &str, len: usize) -> Vec<String> {
+    let mut v: Vec<String> = Vec::new();
+    let digits_len = digits.len();
+    
+    if len == 0 || digits_len < len { 
+        return v; 
+    }
+    
+    for i in 0..=digits_len - len {
+        v.push(digits[i..i + len].to_string());
+    }
+    
+    v
+}

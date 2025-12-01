@@ -2,5 +2,5 @@
 mod exercises;
 
 fn main() {
-    println!("{:?}", exercises::collatz(13));
+    println!("{:?}", exercises::series("0123456789", 3));
 }
