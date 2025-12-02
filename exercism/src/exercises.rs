@@ -323,3 +323,28 @@ pub fn series(digits: &str, len: usize) -> Vec<String> {
     
     v
 }
+
+
+// In a kindergarten class, each student is assigned a set of plants.
+// The plants are represented by letters.
+// Each student has a specific position in the class roster.
+// Given the diagram of plants and a student's name,
+// return the list of plants assigned to that student.
+pub fn plants(diagram: &str, student: &str) -> Vec<&'static str> {
+    let idx = student.chars()
+                    .next()
+                    .map(|c| (c.to_ascii_uppercase() as usize - 65) * 2)
+                    .unwrap_or(0);
+                    
+    diagram.lines()
+        .flat_map(|l| { 
+            l.as_bytes()[idx..idx + 2].iter()
+                .map(|&c| match c {
+                        b'G' => "grass",
+                        b'C' => "clover",
+                        b'R' => "radishes",
+                        b'V' => "violets",
+                        _ => panic!("unknown...")
+                })
+        }).collect()
+}

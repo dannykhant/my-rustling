@@ -2,5 +2,6 @@
 mod exercises;
 
 fn main() {
-    println!("{:?}", exercises::series("0123456789", 3));
+    println!("{:?}", exercises::plants("RCGVRCGV
+RCGVRCGV", "Alice"));
 }
