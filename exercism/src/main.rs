@@ -1,7 +1,6 @@
 #![allow(dead_code)]
-mod exercises;
+mod clock;
 
 fn main() {
-    println!("{:?}", exercises::plants("RCGVRCGV
-RCGVRCGV", "Alice"));
+    println!("{:?}", clock::Clock::new(-41, 30));
 }
