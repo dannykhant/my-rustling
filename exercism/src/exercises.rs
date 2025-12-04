@@ -348,3 +348,17 @@ pub fn plants(diagram: &str, student: &str) -> Vec<&'static str> {
                 })
         }).collect()
 }
+
+
+// Calculate the number of eggs in a given display value.
+pub fn egg_count(display_value: u32) -> usize {
+    let mut cnt = 0;
+    let mut n = display_value;
+    
+    while n > 0 {
+        cnt += n & 1;
+        n >>= 1;
+    }
+    
+    cnt as usize
+}

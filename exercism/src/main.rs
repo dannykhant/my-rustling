@@ -1,6 +1,6 @@
 #![allow(dead_code)]
-mod clock;
+mod exercises;
 
 fn main() {
-    println!("{:?}", clock::Clock::new(-41, 30));
+    println!("{:?}", exercises::egg_count(33));
 }
