@@ -362,3 +362,23 @@ pub fn egg_count(display_value: u32) -> usize {
     
     cnt as usize
 }
+
+
+// Given a hash map where the keys are point values
+// and the values are lists of letters,
+// return a hash map where the keys are letters
+// and the values are point values.
+use std::collections::BTreeMap;
+
+pub fn transform(h: &BTreeMap<i32, Vec<char>>) -> BTreeMap<char, i32> {
+    let mut out = BTreeMap::new();
+    
+    for (&score, letters) in h.iter() {
+        for &ch in letters {
+            let lc: char = ch.to_ascii_lowercase();
+            out.insert(lc, score);
+        }
+    }
+    
+    out
+}
