@@ -5,6 +5,7 @@
 - rustbyexample: The Rust by Example
 - exercism: Exercism's Rust Challenges
 - ultimaterust: Exercises from Ultimate Rust Crash
+- rxp: Gaining Rust Exp by Doing
 
 #### Keywords
 - Self
